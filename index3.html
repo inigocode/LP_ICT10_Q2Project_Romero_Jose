@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clubs — State University of Las Piñas</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      padding-top: 80px;
+      font-family: Arial, sans-serif;
+    }
+    .navbar {
+      width: 100%;
+      background-color: #1e1e1e;
+      padding: 15px 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    }
+    .navbar ul {
+      list-style: none;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar ul li {
+      display: inline-block;
+      margin: 0 20px;
+    }
+    .navbar ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 500;
+    }
+    .navbar ul li a:hover {
+      text-decoration: underline;
+    }
+    .info-box {
+      background: #111;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+      border: 1px solid #333;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <ul>
+    <li><a href="index2.html">Home</a></li>
+    <li><a href="index.html">Grade Calculator</a></li>
+    <li><a href="index3.html">Clubs</a></li>
+  </ul>
+</nav>
+
+<section class="page-header text-center">
+  <h1>Student Clubs & Organizations</h1>
+  <p>Select a club to view more information.</p>
+</section>
+
+<div class="container text-center">
+
+  <select id="clubDropdown" class="form-select w-50 mx-auto">
+    <option selected disabled>Select a club...</option>
+    <option value="politics">Politics and Government Club</option>
+    <option value="basketball">Basketball Varsity</option>
+    <option value="arts">Arts & Humanities</option>
+    <option value="robotics">Robotics Club</option>
+    <option value="mun">Model United Nations Club</option>
+    <option value="advocacy">Advocacy Club</option>
+  </select>
+
+  <button class="btn btn-danger mt-3" onclick="showInfo()">Show Club Information</button>
+
+  <div class="info-box mt-4">
+    <h2 id="clubName"></h2>
+    <p id="clubDesc"></p>
+    <p id="clubTime"></p>
+    <p id="clubLocation"></p>
+    <p id="clubAdvisor"></p>
+  </div>
+
+</div>
+
+<footer class="text-center mt-5 p-3 bg-dark text-muted">
+  © 2025 State University of Las Piñas — All Rights Reserved
+</footer>
+
+<script>
+const clubs = {
+  "politics": {
+    name: "Politics and Government Club",
+    description: "Experience real-world politics through simulations, debates, and fun activities.",
+    time: "Every Thursday 4:00–5:30 PM",
+    location: "Room 67",
+    advisor: "Mr. Romero"
+  },
+  "basketball": {
+    name: "Basketball Varsity",
+    description: "Train, compete, and stay physically fit with the varsity team.",
+    time: "Mon/Wed/Fri 3:00–6:00 PM",
+    location: "Saint Francis Hall",
+    advisor: "Coach Bong"
+  },
+  "arts": {
+    name: "Arts & Humanities",
+    description: "Express yourself through art, music, writing, and creativity.",
+    time: "Every Wednesday 4:00–5:30 PM",
+    location: "Music Room",
+    advisor: "Mr. Francisco"
+  },
+  "robotics": {
+    name: "Robotics Club",
+    description: "Learn coding, robotics, and join competitions and hackathons.",
+    time: "Every Tuesday 3:45–5:30 PM",
+    location: "Computer Lab",
+    advisor: "Ms. Gollena"
+  },
+  "mun": {
+    name: "Model United Nations",
+    description: "Develop diplomacy, leadership, and public speaking skills.",
+    time: "Friday 4:00–5:30 PM",
+    location: "Room 303",
+    advisor: "Mr. Philips"
+  },
+  "advocacy": {
+    name: "Advocacy Club",
+    description: "Organize charity drives, outreach programs, and social campaigns.",
+    time: "Every Monday 4:00–5:00 PM",
+    location: "Room 115",
+    advisor: "Ms. Cortez"
+  }
+}; 
+
+function showInfo() {
+  const selected = document.getElementById("clubDropdown").value;
+
+  if (selected in clubs) {
+    const c = clubs[selected];
+    document.getElementById("clubName").innerText = c.name;
+    document.getElementById("clubDesc").innerText = "Description: " + c.description;
+    document.getElementById("clubTime").innerText = "Meeting Time: " + c.time;
+    document.getElementById("clubLocation").innerText = "Location: " + c.location;
+    document.getElementById("clubAdvisor").innerText = "Advisor: " + c.advisor;
+  }
+}
+</script>
+
+</body>
+</html>
